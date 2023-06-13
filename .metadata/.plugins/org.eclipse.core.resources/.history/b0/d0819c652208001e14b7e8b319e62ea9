@@ -1,0 +1,31 @@
+package com.example.demo.form;
+
+import java.io.Serializable;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class MemberForm implements Serializable{
+		
+		private Boolean memberToken;
+		private String memberCode;
+		
+		@Size(min=6,max=20)
+		@NotNull
+		private String memberName;
+		
+		@Size(max=15)
+		private String authority;
+		
+		@Email(message = "正しいメールアドレスを入力してください")
+		//@Pattern(regexp = "^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\\.)+[a-zA-Z]{2,}$",message = "正しいメールアドレスを入力してください。")
+		private String mail;
+}

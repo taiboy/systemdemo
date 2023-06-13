@@ -1,0 +1,27 @@
+package com.example.demo.form;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class MemberForm {
+		
+		private Boolean memberToken;
+		private String memberCode;
+		
+		@Size(min=6,max=20)
+		@NotNull
+		private String memberName;
+		
+		@Size(max=15)
+		private String authority;
+		
+		@Email
+		private String mail;
+}

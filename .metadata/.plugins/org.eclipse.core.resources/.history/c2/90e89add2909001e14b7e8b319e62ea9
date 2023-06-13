@@ -1,0 +1,29 @@
+package com.example.demo.service;
+
+import java.util.ArrayList;
+
+import com.example.demo.entity.Member;
+
+public class RegiMemServiceIImpl implements RegiMemService{
+
+	
+	
+	public String checkMail(String mail) {
+
+		
+		
+		Boolean check=false;
+		
+		
+		ArrayList<Member> memberList = new ArrayList<>();
+		
+		memberList.add(new Member(true,'tt001','takedataiki','Employee','taikiairperson123@gmail.com'));
+		
+		
+		
+		
+		
+		
+		 
+	}
+}

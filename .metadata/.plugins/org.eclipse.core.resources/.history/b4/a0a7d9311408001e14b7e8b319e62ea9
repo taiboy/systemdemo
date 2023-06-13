@@ -1,0 +1,25 @@
+package com.example.demo;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.example.demo.form.MemberForm;
+import com.example.demo.form.MembertokenForm;
+
+@SessionAttributes(types = MemberForm.class)
+@SessionAttributes(types=MembertokenForm.class)
+@Controller
+public class TopContoller {
+
+	@RequestMapping("/")
+	public String input_mem(Model model) {
+		
+		String mem_token = "1";
+		model.addAttribute("mem_tokenForm", mem_token);
+		model.addAttribute("memberForm",new MemberForm());
+		return "/input_member";
+	}
+	
+}

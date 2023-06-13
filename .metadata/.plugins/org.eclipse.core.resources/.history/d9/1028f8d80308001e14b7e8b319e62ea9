@@ -1,0 +1,17 @@
+package com.example.demo.control;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class RegimemController {
+	
+	@RequestMapping("/conf_mem")
+	public String conf_mem() {
+		
+		
+		return "/conf_mem";
+	}
+
+	
+}

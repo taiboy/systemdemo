@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>メンバー登録入力画面</title>
+</head>
+<body>
+	<div id="main">
+		<h2>メンバー登録</h2>
+		<p>各項目を入力してください。</p>	
+		<form method="post" th:action="@{/conf_mem}" th:object="${memberForm}">
+			<table>
+				<tr>
+					<td>メンバー名</td>
+					<td><input type="text" maxlength="6" th:field="*{memberName}"></td>
+					<div th:if="${#fields.hasError('memberName')}" th;errors="*{memberName}"></div>
+				</tr>
+				<tr th:if="*{memberToken}">
+					<td>権限</td>
+					<td><select th:field="*{authority}">
+						<option value="Customer">Customer</option>
+						<option value="Employee">Employee</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>メールアドレス</td>
+					<td><input type="text" maxlength="18" th:field="*{mail}"></td>
+					<div th:if="${#fields.hasError('mail')}" th;errors="*{mail}"></div>
+				</tr>
+			</table>
+			<button type="submit">登録確認</button>
+			
+		</form>
+		
+	</div>	
+
+</body>
+</html>

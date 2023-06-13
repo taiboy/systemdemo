@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div id="main">
+		<h2>メンバー登録</h2>
+		<p>各項目を確認してください。</p>
+	<form method="post" th:action="@{/}">
+			<table th:object="${member}">
+				<tr>
+					<td>メンバーコード</td>
+					<td th:text="*{memberCode}">memberCode</td>
+				</tr>
+				<tr>
+					<td>メンバー名</td>
+					<td th:text="*{memberName}">memberName</td>
+				</tr>
+				<tr th:if="${true}">
+					<td>権限</td>
+					<td th:text="*{authority}">authority</td>
+				</tr>
+				<tr>
+					<td>メールアドレス</td>
+					<td th:text="*{mail}">mail</td>
+				</tr>
+			</table>
+			<button type="submit">戻る</button>
+		</form>
+		
+	</div>	
+
+
+</body>
+</html>

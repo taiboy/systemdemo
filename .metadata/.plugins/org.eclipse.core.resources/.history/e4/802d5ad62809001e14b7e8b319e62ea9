@@ -1,0 +1,10 @@
+package com.example.demo.service;
+
+public class RegiMemServiceIImpl implements RegiMemService{
+
+	
+	
+	public String checkMail() {
+		
+	}
+}

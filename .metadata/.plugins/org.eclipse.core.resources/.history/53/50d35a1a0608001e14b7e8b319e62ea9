@@ -1,0 +1,30 @@
+package com.example.demo.control;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.demo.entity.Member;
+import com.example.demo.form.MemberForm;
+
+@Controller
+public class RegimemController {
+	
+	@RequestMapping("/conf_mem")
+	public String conf_mem(MemberForm form,Model model) {
+		
+		String memberName = form.getMemberName();
+		String mail = form.getMail();
+		
+		
+		model.addAttribute("member", new Member(memberName,mail));
+		
+		
+		
+		
+		
+		return "/conf_mem";
+	}
+
+	
+}

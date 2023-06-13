@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>メンバー登録入力画面</title>
+</head>
+<body>
+	<div id="main">
+		<h2>メンバー登録</h2>
+		<p>各項目を入力してください。</p>
+		<form method="post" action="@{/conf_mem}" object="${memberForm}">
+			<table>
+				<tr>メンバー名</tr>
+				<tr><input type="text" maxlength="6" field="*{memberName}"></tr>
+				
+				
+			</table>
+			
+			
+			
+			
+		</form>
+		
+	</divm>	
+
+</body>
+</html>

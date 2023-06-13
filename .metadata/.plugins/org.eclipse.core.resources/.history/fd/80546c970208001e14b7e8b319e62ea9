@@ -1,0 +1,20 @@
+package com.example.demo;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.demo.entity.Member;
+
+import ch.qos.logback.core.model.Model;
+
+@Controller
+public class TopContoller {
+
+	@RequestMapping("/")
+	public String input_mem(Model model) {
+		
+		model.addAttribute("form", new Member());
+		return "/input_member";
+	}
+	
+}

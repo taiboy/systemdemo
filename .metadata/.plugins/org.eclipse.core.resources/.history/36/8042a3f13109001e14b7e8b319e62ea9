@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--(1)-->
+<mapper namespace="repository.TodoRepository">
+
+    <!--(2)-->
+    <select id="findById" resultType="Todo">
+        SELECT
+            todo_id,
+            todo_title,
+            finished,
+            created_at
+        FROM
+            todo
+        WHERE
+            todo_id = #{todoId} <!--(3)-->
+    </select>
+
+    <select id="findAll" resultType="Todo">
+        SELECT
+            todo_id,
+            todo_title,
+            finished,
+            created_at
+        FROM
+            todo
+    </select>
+
+    <insert id="create" parameterType="Todo">
+        INSERT INTO todo
+        (
+            todo_id,
+            todo_title,
+            finished,
+            created_at
+        )
+        VALUES
+        (
+            #{todoId},
+            #{todoTitle},
+            #{finished},
+            #{createdAt}
+        )
+    </insert>
+
+    <update id="update" parameterType="Todo">
+        UPDATE todo
+        SET
+            todo_title = #{todoTitle},
+            finished = #{finished},
+            created_at = #{createdAt}
+        WHERE
+            todo_id = #{todoId}
+    </update>
+
+    <delete id="delete" parameterType="Todo">
+        DELETE FROM
+            todo
+        WHERE
+            todo_id = #{todoId}
+    </delete>
+
+    <select id="count" parameterType="Todo" resultType="_long">
+        SELECT
+            COUNT(*)
+        FROM
+            todo
+        <!--(4)-->
+        <where>
+            <if test="todoId != null">
+                AND todo_id = #{todoId}
+            </if>
+            <if test="todoTitle != null">
+                AND todo_title = #{todoTitle}
+            </if>
+            <if test="finished != null">
+                AND finished = #{finished}
+            </if>
+            <if test="createdAt != null">
+                AND createdAt = #{createdAt}
+            </if>
+        </where>
+    </select>
+
+</mapper>
